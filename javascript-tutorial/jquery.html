@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AJAX jQuery Form Handling (Font Awesome)</title>
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+</head>
+<body class="bg-slate-50 min-h-screen flex flex-col md:flex-row items-center justify-center p-4 gap-6">
+
+<div class="w-full max-w-md bg-white rounded-xl shadow-md border border-slate-100 p-6 sm:p-8">
+    <h2 class="text-2xl font-bold text-slate-800 mb-6 text-center">Submit Profile</h2>
+
+    <form id="userForm" class="space-y-5">
+        <div>
+            <label for="username" class="block text-sm font-semibold text-slate-700 mb-1.5">Username</label>
+            <div class="relative">
+                <span class="absolute inset-y-0 left-0 flex items-center pl-3 text-slate-400">
+                    <i class="fa-solid fa-user"></i>
+                </span>
+                <input type="text" id="username" name="username" placeholder="e.g., jsmith" required
+                       class="w-full pl-10 pr-3.5 py-2 border border-slate-300 rounded-lg text-slate-800 placeholder-slate-400 focus:outline-none focus:border-blue-500 focus:ring-2 focus:ring-blue-100 transition-all">
+            </div>
+        </div>
+
+        <div>
+            <label for="email" class="block text-sm font-semibold text-slate-700 mb-1.5">Email Address</label>
+            <div class="relative">
+                <span class="absolute inset-y-0 left-0 flex items-center pl-3 text-slate-400">
+                    <i class="fa-solid fa-envelope"></i>
+                </span>
+                <input type="email" id="email" name="email" placeholder="e.g., john@example.com" required
+                       class="w-full pl-10 pr-3.5 py-2 border border-slate-300 rounded-lg text-slate-800 placeholder-slate-400 focus:outline-none focus:border-blue-500 focus:ring-2 focus:ring-blue-100 transition-all">
+            </div>
+        </div>
+
+        <button type="submit" class="w-full bg-emerald-600 hover:bg-emerald-700 text-white font-semibold py-2.5 px-4 rounded-lg shadow-sm transition-colors duration-200 cursor-pointer mt-2 flex items-center justify-center gap-2">
+            <i class="fa-solid fa-paper-plane"></i> Submit Form (POST)
+        </button>
+    </form>
+
+    <div id="responseMessage" class="mt-5 text-sm font-medium text-center min-h-[20px]"></div>
+</div>
+
+
+<div class="w-full max-w-md bg-white rounded-xl shadow-md border border-slate-100 p-6 sm:p-8 flex flex-col justify-between min-h-[340px]">
+    <div>
+        <h2 class="text-2xl font-bold text-slate-800 mb-6 text-center">Fetch Profile</h2>
+        
+        <button id="loadProfileBtn" class="w-full bg-blue-600 hover:bg-blue-700 text-white font-semibold py-2.5 px-4 rounded-lg shadow-sm transition-colors duration-200 cursor-pointer flex items-center justify-center gap-2 mb-6">
+            <i class="fa-solid fa-cloud-arrow-down"></i> Fetch User Data (GET)
+        </button>
+
+        <div id="userDataDisplay" class="hidden border border-slate-100 bg-slate-50 rounded-xl p-5 space-y-3">
+            <div class="flex items-start gap-3">
+                <span class="text-slate-400 mt-1"><i class="fa-solid fa-id-badge"></i></span>
+                <div>
+                    <span class="block text-xs font-bold tracking-wide uppercase text-slate-400">Username</span>
+                    <span id="displayUsername" class="text-lg font-medium text-slate-800">-</span>
+                </div>
+            </div>
+            <div class="border-t border-slate-200/60 pt-2 flex items-start gap-3">
+                <span class="text-slate-400 mt-1"><i class="fa-solid fa-envelope-open"></i></span>
+                <div>
+                    <span class="block text-xs font-bold tracking-wide uppercase text-slate-400">Email Address</span>
+                    <span id="displayEmail" class="text-lg font-medium text-slate-800">-</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="fetchMessage" class="mt-4 text-sm font-medium text-center min-h-[20px]"></div>
+</div>
+
+<script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+
+<script src="jquery.js">
+
+</script>
+
+</body>
+</html>
+
+
+
+
