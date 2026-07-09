@@ -3,7 +3,7 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import { useState } from 'react';
 // import Register from '../pages/Register';
 import Car from './components/Car';
-import Me from './components/me';
+// import Me from './components/me';
 import UserProfile, { Header } from './components/UserProfile';
 import Welcome from './components/Welcome';
 import ProductCard from './components/ProductCard';
