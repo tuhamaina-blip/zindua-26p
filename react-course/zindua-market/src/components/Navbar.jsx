@@ -1,20 +1,21 @@
-// src/components/Navbar.jsx
 import { useContext, useState } from 'react';
-import { CartContext } from '@/context/CartContext';
+import { useSelector } from 'react-redux';
 import { ThemeContext } from '@/context/ThemeContext';
-import { useAuth } from '@/context/AuthContext';
+import { useAuth } from '@/context/AuthContext'; 
 import { Button } from '@/components/ui/button';
 import { Dialog, DialogContent, DialogDescription, DialogHeader, DialogTitle, DialogTrigger } from '@/components/ui/dialog';
-import Cart from './ui/Cart';
+import Cart from './Cart'; 
 import { LogOut, ShoppingCart, Sun, Moon, User, ShieldAlert } from 'lucide-react';
 import { Link } from 'react-router-dom';
 
 export default function Navbar() {
-  const { cart } = useContext(CartContext);
+  const cart = useSelector((state) => state.cart.items);
   const { theme, toggleTheme } = useContext(ThemeContext);
-  const { user, isAuthenticated, isAdmin, logout } = useAuth();
-  const [isOpen, setIsOpen] = useState(false);
   
+  // Connect cleanly to your custom Firebase Auth Context
+  const { user, isAuthenticated, isAdmin, logout } = useAuth();
+  
+  const [isOpen, setIsOpen] = useState(false);
   const cartItemCount = cart?.length || 0;
 
   return (
@@ -58,10 +59,12 @@ export default function Navbar() {
               </DialogDescription>
             </DialogHeader>
             <div className="flex-1 overflow-y-auto">
-              <Cart onCheckout={()=> setIsOpen(false)}/>
+              <Cart onCheckout={() => setIsOpen(false)}/>
             </div>
           </DialogContent>
         </Dialog>
+
+        {/* Conditionally render authenticated profile layout vs guest authentication layout */}
         {isAuthenticated ? (
           <div className="flex items-center gap-3 pl-2 border-l border-muted">
             {isAdmin && (
@@ -87,7 +90,7 @@ export default function Navbar() {
             <Button 
               variant="destructive" 
               size="sm" 
-              onClick={logout}
+              onClick={logout} 
               className="h-8 px-2 sm:px-3 flex items-center gap-1.5"
             >
               <LogOut className="h-3.5 w-3.5" />

@@ -13,7 +13,7 @@ import Reducer from './components/Reducer';
 import ProductList from './components/ProductList';
 import { ThemeProvider } from './context/ThemeContext';
 import Navbar from './components/Navbar';
-import Cart from './components/ui/Cart';
+import Cart from './components/Cart';
 import { CartProvider } from './context/CartContext';
 import { Login } from '@/pages/Login';
 import { Register } from '@/pages/Register';

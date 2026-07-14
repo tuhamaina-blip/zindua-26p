@@ -1,7 +1,7 @@
 import { useContext } from "react"
 import { CartContext } from "@/context/CartContext"
-import { Button } from "./button"
-import { Card,  CardHeader, CardTitle, CardContent, CardFooter } from "./card"
+import { Button } from "./ui/button"
+import { Card,  CardHeader, CardTitle, CardContent, CardFooter } from "./ui/card"
 
 import React from 'react'
 import { useNavigate } from "react-router-dom"
